@@ -1,0 +1,11 @@
+<ul class="slideshow">
+{% for slide in page.slides %}
+  <li id="linen_{{ forloop.index }}"
+    {% if forloop.first %}class="show"{% endif %}>
+    <h3>{% include number-word.html %}</h3>
+    <img src="{{ slide.src | prepend: site.slides | prepend: site.baseurl }}"
+      width="{{ slide.width }}" height="{{ slide.height }}"
+      alt="{{ slide.alt }}">
+  </li>
+{% endfor %}
+</ul>

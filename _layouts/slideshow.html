@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<div id="body_content" class="clearfix">
+  <h1 id="body_content_page_title">{{ page.slideshow }}</h1>
+
+  <div id="body_content_left" class="clearfix">
+    <p id="slideshow_controls" style="display:none;">
+      <a href="#" id="playShow" onclick="startSlideShow(); return false;">Play</a>
+      <a href="#" id="stopShow" onclick="stopSlideShow(); return false;">Pause</a>
+    </p>
+
+    {% include slideshow.html %}
+  </div>
+
+  <div id="body_content_right" class="clearfix">
+    <h2>Other Linens</h2>
+
+    <ul id="linens">
+    {% for slide in page.slides %}
+      <li>
+        <a href="#{{ forloop.index }}"
+          onclick="stopSlideShow();goToPhoto('#linen_{{ forloop.index }}');return false;">
+          <img alt="{{ slide.alt }}" height="96" width="96"
+            src="{{ slide.src | replace: '_slideshow.','_preview.' | prepend: site.slides | prepend: site.baseurl }}"
+          ><br> {% include number-word.html %}
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+</div>

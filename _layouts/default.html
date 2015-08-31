@@ -1,0 +1,22 @@
+{% include head.html %}
+
+<div id="page_container">
+  <div id="page" class="clearfix">
+    <div id="header" class="clearfix">
+      {% include header.html %}
+    </div>
+    <div id="body" class="clearfix">
+      {{ content }}
+    </div>
+    <div id="footer" class="clearfix">
+      {% include footer.html %}
+    </div>
+  </div>
+</div>
+
+<script src="{{ '/js/jquery.js' | prepend: site.baseurl }}"></script>
+{% if page.title == 'Home' %}
+<script src="{{ '/js/linens.js' | prepend: site.baseurl }}"></script>
+{% endif %}
+<script src="{{ '/js/jquery-ui-1.8.min.js' | prepend: site.baseurl }}"></script>
+<script src="{{ '/js/application.js' | prepend: site.baseurl }}"></script>

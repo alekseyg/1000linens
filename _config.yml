@@ -1,0 +1,23 @@
+# Site settings
+title: 1000 Linens
+baseurl: ""
+slides: "/images/slides"
+url: "http://1000linens.lyosha.me"
+
+collections:
+  linens:
+    output: true
+    permalink: /:collection/:path/
+
+nav:
+- title: Home
+  url: /
+- title: Linens
+  url: /linens/
+- title: About Us
+  url: /about/
+- title: Contact Us
+  url: /contact/
+
+# Build settings
+markdown: kramdown

@@ -1,0 +1,19 @@
+---
+layout: page
+title: Linens
+permalink: /linens/
+---
+
+<div id="body_content_left" class="clearfix">
+  <ul id="linens">
+  {% for slideshow in site.linens %}
+    <li>
+      <a href="{{ slideshow.url | prepend: site.baseurl }}">
+        {{ slideshow.slideshow }}<br>
+        <img height="106" width="106" alt="{{ slideshow.slides[0].alt }}"
+          src="{{ slideshow.slides[0].src | replace: '_slideshow.','_dialog_thumb.' | prepend: site.slides | prepend: site.baseurl }}">
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+</div>

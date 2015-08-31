@@ -1,0 +1,14 @@
+<div id="header_content">
+  <h1><a href="{{ '/' | prepend: site.baseurl }}">{{ site.title }}</a></h1>
+
+  <ul id="menu" class="menu clearfix">
+  {% assign page_url = page.url | replace: 'index.html','' %}
+  {% for link in site.nav %}
+    <li class="{% if link.url == page_url or link.url == '/linens/' and page.slideshow %}selected{% endif %} {% if forloop.first %}first{% endif %} {% if forloop.last %}last{% endif %}">
+      <a href="{{ link.url | prepend: site.baseurl }}">
+        {{ link.title }}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+</div>
