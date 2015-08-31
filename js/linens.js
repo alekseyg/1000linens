@@ -2,7 +2,16 @@
 ---
 (function () {
 
-var linens = {{ site.linens | jsonify }};
+var linens = [{% for slideshow in site.linens %}
+  { slides: [{% for slide in slideshow.slides %}
+    { alt: '{{ slide.alt }}',
+      src: '{{ slide.src }}',
+      width: '{{ slide.width }}',
+      height: '{{ slide.height }}'
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}]
+}{% unless forloop.last %},{% endunless %}
+{% endfor %}];
 var words = 'One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|Eleven|Twelve|Thirteen|Fourteen|Fifteen|Sixteen|Seventeen|Eighteen|Nineteen|Twenty'
 .split('|');
 
